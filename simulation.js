@@ -8,8 +8,9 @@ window.onload = function(){
 	var W = 1000;
 	var H = 600;
 	// has to be dynamic
-	var startNumber;
-	var base;
+	var startNumber = 32;
+	var currentNumber = 32;
+	var base = 2;
 	var stop;
 	var toFinish;
 	canvas.width = W;
@@ -23,8 +24,7 @@ window.onload = function(){
 	
 	function init()
 	{
-		startNumber = 32;
-		base = 2;
+		currentNumber = startNumber;
 		stop = false;
 		toFinish = false;
 
@@ -33,8 +33,11 @@ window.onload = function(){
 		length = 220;
 		//angle at which branches will diverge - 10-60
 		divergence = 35;
+		if (base == 3)
+			divergence = 60;
 		//Every branch will be 0.75times of the previous one - 0.5-0.75
 		reduction = 0.6
+		if (base == 3) reduction = 0.5;
 		//width of the branch/trunk
 		line_width = 10;
 
@@ -42,7 +45,7 @@ window.onload = function(){
 	}
 
 	function initMenu() {
-				//filling the canvas white
+
 		ctx.fillStyle = "white";
 		ctx.fillRect(0, 0, W, H);
 		
@@ -79,9 +82,9 @@ window.onload = function(){
 
 		ctx.font = "15px Courier New";
 		ctx.fillStyle = "black";
-		ctx.fillText(startNumber, trunk.x- 10, H-trunk.y-30);
+		ctx.fillText(currentNumber, trunk.x- 10, H-trunk.y-30);
 
-		startNumber = startNumber / base;
+		currentNumber = currentNumber / base;
 		setTimeout(branches, 800);
 	}
 
@@ -101,7 +104,7 @@ window.onload = function(){
     var mousePos = getMousePos(canvas, evt);
 
 	    if (isInside(mousePos, W-290, 400, 130, 40)) {
-	    	init();
+	    	init(32, 2);
 	     	startDrawing();   
 	    }
 
@@ -114,6 +117,22 @@ window.onload = function(){
 	    if (isInside(mousePos, W-150, 450, 130, 40)) {
 	    	toFinish = true;
 	   		branches();
+	    }
+
+	    /////////////////////
+
+ 		if (isInside(mousePos, W-290, 150, 200, 40)) {
+	    	startNumber = 32;
+	    	base = 2;
+	    	init();
+	    	initMenu();
+	    }
+
+ 		if (isInside(mousePos, W-290, 200, 200, 40)) {
+	    	startNumber = 81;
+	    	base = 3;
+	    	init();
+	    	initMenu();
 	    }
 
 	}, false);
@@ -221,11 +240,15 @@ window.onload = function(){
 				ctx.lineTo(ep3.x, H-ep3.y);
 			}
 
-			if (startNumber >= 1) {
+			if (currentNumber >= 1) {
 				ctx.font = "15px Courier New";
 				ctx.fillStyle = "black";
-				ctx.fillText(startNumber,ep1.x, H-ep1.y);
-				ctx.fillText(startNumber,ep2.x, H-ep2.y);
+				ctx.fillText(currentNumber,ep1.x, H-ep1.y);
+				ctx.fillText(currentNumber,ep2.x, H-ep2.y);
+				if (base == 3) {
+					ctx.fillText(currentNumber,ep3.x, H-ep3.y);
+
+				}
 			}
 
 			//Time to make this function recursive to draw more branches
@@ -246,18 +269,18 @@ window.onload = function(){
 		
 
 		//Lets add some more color
-		if(startNumber <= 1) {
+		if(currentNumber <= 1) {
 			ctx.strokeStyle = "green";
 			stop = true;
 		} 
 		else ctx.strokeStyle = "brown";
 		ctx.stroke();
 		start_points = new_start_points;
-		startNumber = startNumber / base;
+		currentNumber = currentNumber / base;
 		//recursive call - only if length is more than 2.
 		//Else it will fall in an long loop
 
-		//if(startNumber >= 1) setTimeout(branches, 800);
+		//if(currentNumber >= 1) setTimeout(branches, 800);
 		if (toFinish) setTimeout(branches, 800);
 	
 		//else setTimeout(init, 800);
