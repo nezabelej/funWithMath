@@ -23,26 +23,28 @@ window.onload = function(){
 	
 	function init()
 	{
-		//filling the canvas white
-		ctx.fillStyle = "white";
-		ctx.fillRect(0, 0, W, H);
-		
 		startNumber = 32;
 		base = 2;
 		stop = false;
 		toFinish = false;
 
 		//Lets draw the trunk of the tree
-		//lets randomise the variables
 		//length of the trunk - 100-150
 		length = 220;
 		//angle at which branches will diverge - 10-60
 		divergence = 35;
 		//Every branch will be 0.75times of the previous one - 0.5-0.75
-		//with 2 decimal points
 		reduction = 0.6
 		//width of the branch/trunk
 		line_width = 10;
+
+		initMenu();
+	}
+
+	function initMenu() {
+				//filling the canvas white
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, W, H);
 		
 		ctx.fillStyle = "khaki";
 		ctx.fillRect(W-301, 50, 300, 500);
@@ -51,14 +53,15 @@ window.onload = function(){
 		ctx.font = "25px Courier New";
 		ctx.fillStyle = "black";
 		ctx.fillText("Logaritem", W-280, 80);
-		//ctx.font = "15px Courier New";
-		//ctx.fillText("Logaritem ponazarja, kolikokrat moramo neko število deliti z osnovo, da dobimo 1.", W-280, 120);
 
 		form();
 		playButtons();
 	}
 
 	function startDrawing() {
+
+		initMenu();
+
 		//This is the end point of the trunk, from where branches will diverge
 		var trunk = {x: W/3, y: length+50, angle: 90};
 		//It becomes the start point for branches
@@ -117,25 +120,25 @@ window.onload = function(){
 
 
 	function form()
-	{
-		ctx.font = "20px Courier New";
+	{		
+		ctx.fillStyle = "aliceblue";
+		ctx.beginPath();
+		ctx.fillRect(W-290, 150, 200, 40);
+		ctx.stroke();
 		ctx.fillStyle = "black";
+		ctx.fillText("log 32 = 5", W-280, 180);
+		ctx.font = "15px Courier New";
+		ctx.fillText("2", W-230, 185);
 
-		ctx.fillText("Število: ", W-280, 190);
-		var stevilo = new CanvasInput({
-            canvas: document.getElementById('canvas'),
-            x: W-280,
-            y: 200,
-            placeHolder: "32"
-         });
-
-		ctx.fillText("Osnova: ", W-280, 260);
-		var osnova = new CanvasInput({
-            canvas: document.getElementById('canvas'),
-            x: W-280,
-            y: 270,
-            placeHolder: "2"
-         });
+		ctx.fillStyle = "aliceblue";
+		ctx.beginPath();
+		ctx.fillRect(W-290, 200, 200, 40);
+		ctx.stroke();
+		ctx.font = "25px Courier New";
+		ctx.fillStyle = "black";
+		ctx.fillText("log 81 = 4", W-280, 230);
+		ctx.font = "15px Courier New";
+		ctx.fillText("3", W-230, 235);
 	}
 
 	function makePlayButton(x, y, w, h, type) {
