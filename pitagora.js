@@ -49,40 +49,14 @@ window.onload = function(){
 	    ctx.fillText("c = hipotenuza", 320, H-500);
 	}
 
-	function circle()
-	{
-		ctx.strokeStyle = "darkcyan";
-		ctx.beginPath();
-		ctx.arc(500, H-300,30,0,2*Math.PI);
-		ctx.stroke();
-		ctx.fillStyle = "cadetblue";
-	    ctx.fillText("A", 530, H-270);
-	}
 
-	function equations(startx, starty, words)
+	function equation()
 	{
 		ctx.font = "18px Courier New";
 		ctx.fillStyle = "black";
 
-	    ctx.fillText(words[0], startx, starty);
-	    ctx.fillText(words[1], startx+90, starty-20);
-	    ctx.fillText(words[2], startx+100, starty+20);
-
-	    ctx.beginPath();
-		ctx.strokeStyle = "black";
-	    ctx.moveTo(startx+90, starty-5);
-	    ctx.lineTo(startx+270, starty-5);
-	    ctx.stroke();
-
-	    ctx.fillText(" = ", startx+280, starty);
-	    ctx.fillText(words[3], startx+320, starty-20);
-	    ctx.fillText(words[4], startx+320, starty+20);
-
-	    ctx.beginPath();
-		ctx.strokeStyle = "black";
-	    ctx.moveTo(startx+315, starty-5);
-	    ctx.lineTo(startx+340, starty-5);
-	    ctx.stroke();
+	    ctx.fillText("hiptenuza = kateta1 + kateta2", 600, 200);
+	
 	}
 
 	function makePlayButton(x, y, w, h, type) {
@@ -145,31 +119,16 @@ window.onload = function(){
 	    		names();
 	    		step++;
 	    	} else if (step == 2) {
-	    		step++;
-	    		circle();
-	    	} else if (step == 3) {
-				equations(600, 100, ["sin A = ", "nasprotna kateta", "hipotenuza", "b", "c"]);
+				equation();
 				step++;
-	    	} else if (step == 4) {
-	    		equations(600, 200, ["cos A = ", "priležna kateta", "hipotenuza", "a", "c"]);
-	    		step++;
-	    	} else if (step == 5) {
-			    equations(600, 300, ["tan A = ", "nasprotna kateta", "priležna kateta", "b", "a"]);
-	    		step++;
-	    	} else if (step == 6) {
-	    		equations(600, 400, ["cot A = ", "priležna kateta", "nasprotna kateta", "a", "b"]);
-	    	}
+	    	} 
 
     	}
     	if (isInside(mousePos, 250, 500, 50, 40)) {
     		init();
     		setTimeout(angle90, 800);
     		setTimeout(names, 1600);
-    		setTimeout(circle, 2400);
-    		setTimeout(equations, 3200, 600, 100, ["sin A = ", "nasprotna kateta", "hipotenuza", "b", "c"]);
-    		setTimeout(equations, 4000, 600, 200, ["cos A = ", "priležna kateta", "hipotenuza", "a", "c"]);
-    		setTimeout(equations, 4800, 600, 300, ["tan A = ", "nasprotna kateta", "priležna kateta", "b", "a"]);
-    		setTimeout(equations, 5400, 600, 400, ["cot A = ", "priležna kateta", "nasprotna kateta", "a", "b"]);
+    		setTimeout(equation, 2400, 600);
     	}
 
 	}, false);

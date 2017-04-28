@@ -37,7 +37,7 @@ window.onload = function(){
 			divergence = 60;
 		//Every branch will be 0.75times of the previous one - 0.5-0.75
 		reduction = 0.6
-		if (base == 3) reduction = 0.5;
+		if (base == 3) reduction = 0.55;
 		//width of the branch/trunk
 		line_width = 10;
 
