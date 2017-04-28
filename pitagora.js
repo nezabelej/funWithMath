@@ -54,9 +54,11 @@ window.onload = function(){
 	{
 		ctx.font = "18px Courier New";
 		ctx.fillStyle = "black";
-
 	    ctx.fillText("hiptenuza = kateta1 + kateta2", 600, 200);
-	
+		ctx.font = "12px Courier New";
+	    ctx.fillText("2", 700, 190);
+	    ctx.fillText("2", 810, 190);
+	    ctx.fillText("2", 920, 190);
 	}
 
 	function makePlayButton(x, y, w, h, type) {
