@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-    <script src="CanvasInput.min.js"></script>
-	<script src="simulation.js"></script>
-    <meta charset="UTF-8">
-    <title>FunWithMath</title>
+  <title>Množenje matrik</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="An interactive matrix multiplication calculator for educational purposes">
+  <link href="cads.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div id="page-wrap">
-		<ul>
-		  <li><a href="logaritem.html">Logaritem</a></li>
-		  <li><a href="pitagorov_izrek.html">Pitagorov izrek</a></li>
-		  <li><a href="#">Množenje matrik</a></li>
-		  <li><a href="kotne_funkcije.html">Kotne funkcije</a></li>
-		</ul>
-		<div id="app">
-		    <canvas id="canvas"></canvas>
-		</div>
-	</div>
+<ul class="ulMenu">
+  <li class="ilMenu"><a class="aMenu" ref="logaritem.html">Logaritem</a></li>
+  <li class="ilMenu"><a class="aMenu" href="#">Pitagorov izrek</a></li>
+  <li class="ilMenu"><a class="aMenu" href="matrike.html">Množenje matrik</a></li>
+  <li class="ilMenu"><a class="aMenu" href="kotne_funkcije.html">Kotne funkcije</a></li>
+</ul>
+  <div id="main-container"><div class="app"><div class="calculator f1toc42x"><div class="matrices f1c7x5pa"><table class="matrixAWrapper fm8khm7"><tr><td><div class="rowsResizer f11qpndz"><div class="decreaseRowA ffnnz8g">-</div><div class="increaseRowA ffnnz8g">+</div></div></td><td class="matrixA f1mgyl9u"><div class="matrix f1gjq9tk"><div class="leftBracket ft2xw1y"></div><ul class="row flts9az"><li class="col"><input class="cell f16qkrb5" type="text" data-row="0" data-col="0" value="1"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="0" data-col="1" value="2"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="0" data-col="2" value="1"></li></ul><ul class="row flts9az"><li class="col"><input class="cell f16qkrb5" type="text" data-row="1" data-col="0" value="0"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="1" data-col="1" value="1"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="1" data-col="2" value="0"></li></ul><ul class="row flts9az"><li class="col"><input class="cell f16qkrb5" type="text" data-row="2" data-col="0" value="2"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="2" data-col="1" value="3"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="2" data-col="2" value="4"></li></ul><div class="rightBracket fltbfb1"></div></div></td></tr><tr><td></td><td class="colsResizerContainer f1mgyl9u"><div class="colsResizer f17pqfye"><div class="decreaseColA ffnnz8g">-</div><div class="increaseColA ffnnz8g">+</div></div></td></tr></table><span class="tempEqualsSign f1qv28t9">×</span><table class="matrixBWrapper fm8khm7"><tr><td class="matrixB f1ipeskn" style="opacity: 1; transform: translateX(0%) translateY(0px) rotateZ(0deg); transform-origin: left bottom 0px;"><div class="matrix f1gjq9tk"><div class="leftBracket ft2xw1y"></div><ul class="row flts9az"><li class="col"><input class="cell f16qkrb5" type="text" data-row="0" data-col="0" value="2" style="transform: rotateZ(0deg);"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="0" data-col="1" value="5" style="transform: rotateZ(0deg);"></li></ul><ul class="row flts9az"><li class="col"><input class="cell f16qkrb5" type="text" data-row="1" data-col="0" value="6" style="transform: rotateZ(0deg);"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="1" data-col="1" value="7" style="transform: rotateZ(0deg);"></li></ul><ul class="row flts9az"><li class="col"><input class="cell f16qkrb5" type="text" data-row="2" data-col="0" value="1" style="transform: rotateZ(0deg);"></li><li class="col"><input class="cell f16qkrb5" type="text" data-row="2" data-col="1" value="8" style="transform: rotateZ(0deg);"></li></ul><div class="rightBracket fltbfb1"></div></div></td><td><div class="rowsResizer f11qpndz"><div class="decreaseRowB ffnnz8g">-</div><div class="increaseRowB ffnnz8g">+</div></div></td></tr><tr><td class="colsResizerContainer f1mgyl9u"><div class="colsResizer f17pqfye"><div class="decreaseColB ffnnz8g">-</div><div class="increaseColB ffnnz8g">+</div></div></td><td></td></tr></table><div class="matrixC frd1ucg" style="opacity: 0.01; margin-left: 0px;"></div></div><div class="controlPanel f1uaugap"><div class="multiply flk4j4b"><svg width="20px" height="20px" viewBox="0 0 41.999 41.999" space="preserve"><g><path d="M36.068,20.176l-29-20C6.761-0.035,6.363-0.057,6.035,0.114C5.706,0.287,5.5,0.627,5.5,0.999v40 c0,0.372,0.206,0.713,0.535,0.886c0.146,0.076,0.306,0.114,0.465,0.114c0.199,0,0.397-0.06,0.568-0.177l29-20  c0.271-0.187,0.432-0.494,0.432-0.823S36.338,20.363,36.068,20.176z" fill="#FFFFFF"></path></g></svg>Zmnoži</div></div></div></div></div>
+  <script src="./dist/main.min.js"></script>
+
 </body>
-</html>
+</html>	
