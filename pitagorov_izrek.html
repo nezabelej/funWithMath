@@ -9,14 +9,21 @@
 </head>
 <body>
 	<div id="page-wrap">
-		<ul>
+		<ul style="z-index: 50">
 		  <li><a href="logaritem.html">Logaritem</a></li>
 		  <li><a href="#">Pitagorov izrek</a></li>
 		  <li><a href="matrike.html">Množenje matrik</a></li>
-		  <li><a href="kotne_funkcije.html">Kotne funkcije</a></li>
+		  <div class="dropdown">
+		  	<li><a class="dropbtn" href="#">Kotne funkcije</a>
+		  		<div class="dropdown-content">
+				    <a class="dropdownA" href="kotne_funkcije.html">Kotne funkcije v pravokotnem trikotniku</a>
+				    <a class="dropdownA" href="#">Kotne funkcije v enotski krožnici</a>
+		  		</div>
+	  		</li>
+  		  </div>				 
 		</ul>
 		<div id="app">
-		    <canvas id="canvas"></canvas>
+		    <canvas id="canvas" style="z-index: 20"></canvas>
 		</div>
 	</div>
 </body>

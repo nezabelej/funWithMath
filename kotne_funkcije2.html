@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="trigonometry.js"></script>
+    <meta charset="UTF-8">
+    <title>FunWithMath</title>
+  </head>
+  <body>
+  <div id="page-wrap">
+        <ul style="z-index: 50">
+          <li><a href="logaritem.html">Logaritem</a></li>
+          <li><a href="pitagorov_izrek.html">Pitagorov izrek</a></li>
+          <li><a href="matrike.html">Množenje matrik</a></li>
+          <div class="dropdown">
+            <li><a class="dropbtn" href="#">Kotne funkcije</a>
+              <div class="dropdown-content">
+                <a class="dropdownA" href="kotne_funkcije.html">Kotne funkcije v pravokotnem trikotniku</a>
+                <a class="dropdownA" href="#">Kotne funkcije v enotski krožnici</a>
+              </div>
+            </li>
+            </div>         
+        </ul>
+
+        <div id="app" style="margin-top: 20px">
+          <canvas id="canvas" width="500" height="400"></canvas>
+        </div>
+
+   
+        <p>
+          Kot: <span id="ang"></span>
+        </p>
+        <form id="form">
+          <table>
+            <tr>
+              <td>
+                Sinus:
+              </td>
+              <td><input type="checkbox" id="sine" name="sine">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Kosinus:
+              </td>
+              <td><input type="checkbox" id="cosine" name="cosine">
+              </td>
+            </tr>
+          </table>
+        </form>
+    </div>
+  </body>
+</html>
