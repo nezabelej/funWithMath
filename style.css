@@ -26,7 +26,7 @@
 /*Some basic CSS*/
 * {margin: 200; padding: 200;}
 /*To remove the scrollers*/
-#canvas {display: block;}
+/* #canvas {display: block;} */
 
 #page-wrap {
      width: 1000px;
