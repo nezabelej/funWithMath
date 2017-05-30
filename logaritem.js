@@ -13,6 +13,7 @@ window.onload = function(){
 	var base = 2;
 	var stop;
 	var toFinish;
+	var currentText = H-200;
 	canvas.width = W;
 	canvas.height = H;
 	
@@ -40,6 +41,11 @@ window.onload = function(){
 		if (base == 3) reduction = 0.55;
 		//width of the branch/trunk
 		line_width = 10;
+
+		currentText = H-200;
+		if (base == 2) {
+			currentText = H - 250;
+		}
 
 		initMenu();
 	}
@@ -82,7 +88,7 @@ window.onload = function(){
 
 		ctx.font = "15px Courier New";
 		ctx.fillStyle = "black";
-		ctx.fillText(currentNumber, trunk.x- 10, H-trunk.y-30);
+		ctx.fillText(currentNumber, trunk.x- 18, H-trunk.y-30);
 
 		currentNumber = currentNumber / base;
 		setTimeout(branches, 800);
@@ -209,6 +215,11 @@ window.onload = function(){
 	//Lets draw the branches now
 	function branches()
 	{
+		if (((currentNumber*base)/base) >= 1) {
+			ctx.font = "16px Courier New";
+			ctx.fillText((currentNumber*base)+" / "+base+" = "+((currentNumber*base)/base),100, currentText);
+			currentText = currentText + 40;
+		}
 
 		//reducing line_width and length
 		length = length * reduction;
@@ -219,7 +230,6 @@ window.onload = function(){
 		ctx.beginPath();
 		for(var i = 0; i < start_points.length; i++)
 		{
-
 			var sp = start_points[i];
 		
 			//2 branches will come out of every start point. Hence there will be
@@ -243,9 +253,13 @@ window.onload = function(){
 			if (currentNumber >= 1) {
 				ctx.font = "15px Courier New";
 				ctx.fillStyle = "black";
-				ctx.fillText(currentNumber,ep1.x, H-ep1.y);
-				ctx.fillText(currentNumber,ep2.x, H-ep2.y);
+				if (base == 2) {
+					ctx.fillText(currentNumber,ep1.x+8, H-ep1.y+2);
+					ctx.fillText(currentNumber,ep2.x, H-ep2.y+10);
+				}
 				if (base == 3) {
+					ctx.fillText(currentNumber,ep1.x, H-ep1.y);
+					ctx.fillText(currentNumber,ep2.x, H-ep2.y);
 					ctx.fillText(currentNumber,ep3.x, H-ep3.y);
 
 				}
