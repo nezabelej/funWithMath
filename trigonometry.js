@@ -7,9 +7,13 @@ var cbox;
 
 function init() {
     angdisplay = document.querySelector('#ang');
+    angCos = document.querySelector("#angCos");
+    angSin = document.querySelector("#angSin");
     sbox = document.querySelector('#sine');
     cbox = document.querySelector('#cosine'); 
     document.querySelector('#form').style.fontFamily = "Courier New";
+    document.querySelector('#pKotSin').style.fontFamily = "Courier New";
+    document.querySelector('#pKotCos').style.fontFamily = "Courier New";
     document.querySelector('#pKot').style.fontFamily = "Courier New";
 
     sbox.onchange = draw;
@@ -202,6 +206,9 @@ function reset(e) {
     if (ang < -4*Math.PI)
 	ang += 4*Math.PI;
     angdisplay.innerHTML = Math.round(ang * (180 / Math.PI)*100)/100+"°" ;
+    angCos.innerHTML = "Cos "+Math.round(ang * (180 / Math.PI)*100)/100+"° = "+Math.round(Math.cos(ang)*100)/100;
+    angSin.innerHTML = "Sin "+Math.round(ang * (180 / Math.PI)*100)/100+"° = "+Math.round(Math.sin(ang)*100)/100;
+
     /*
     if (nang > Math.PI + ang) {
 	nang -= 2*Math.PI;
