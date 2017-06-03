@@ -149,3 +149,22 @@ function allowContinueReducer$(action$) {
         }
     })
 }
+
+function i(t) {
+    return t.select(".calculator").elements().map(function(t) {
+        var e = Array.isArray(t) ? t[0] : t;
+        if (!e) return null;
+        var r = e.querySelector(".matrixA *"),
+            n = e.querySelector(".matrixB *");
+        if (!r || !n) return null;
+        var i = r.querySelector(".row");
+        return i ? {
+            matrixAHeight: r.clientHeight,
+            matrixBWidth: n.clientWidth,
+            matrixBHeight: n.clientHeight,
+            rowHeight: i.clientHeight
+        } : null
+    }).filter(n).compose(o.default(function(t, e) {
+        return t.matrixAHeight === e.matrixAHeight && t.matrixBHeight === e.matrixBHeight && t.matrixBWidth === e.matrixBWidth
+    })).compose(a.default(16))
+}
