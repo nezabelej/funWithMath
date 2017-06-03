@@ -43,6 +43,13 @@ function resizeIntent(domSource) {
             return xstream_1.default.merge(decreaseRowA$, increaseRowA$, decreaseColA$, increaseColA$, decreaseRowB$, increaseRowB$, decreaseColB$, increaseColB$)
 }
 
+function resetReducer$(action$) {
+    return action$
+        .map(function () { return function resetReducer(prevState) {
+        return __assign({}, prevState, { step: 0, canInteract: true, fastForwardToEnd: false, matrixA: __assign({}, prevState.matrixA, { editable: true }), matrixB: __assign({}, prevState.matrixB, { editable: true }), matrixC: void 0 });
+    }; });
+}
+
 function measure(domSource) {
     return domSource.select(".calculator").elements().map(function(e) {
         var actualElement = Array.isArray(e) ? e[0] : e;
@@ -116,6 +123,30 @@ function fastForwardToEndReducer$(action$) {
                 }
             })
         }
+
+function resizeReducer$(action$) {
+    return action$
+        .map(function (action) { return function resizeReducer(prevState) {
+        var targetMatrix = 'matrix' + action.target;
+        var nextState = {
+            step: prevState.step,
+            canInteract: prevState.canInteract,
+            fastForwardToEnd: prevState.fastForwardToEnd,
+            measurements: prevState.measurements,
+            matrixA: prevState.matrixA,
+            matrixB: prevState.matrixB,
+            matrixC: prevState.matrixC,
+        };
+        var prevValues = prevState[targetMatrix].values;
+        if (action.resizeParam.direction === 'row') {
+            nextState[targetMatrix] = __assign({}, prevState[targetMatrix], { values: prevValues.resize(prevValues.numberRows + action.resizeParam.amount, prevValues.numberColumns) });
+        }
+        else {
+            nextState[targetMatrix] = __assign({}, prevState[targetMatrix], { values: prevValues.resize(prevValues.numberRows, prevValues.numberColumns + action.resizeParam.amount) });
+        }
+        return nextState;
+    }; });
+}
 
 function allowContinueReducer$(action$) {
     return action$.map(function() {
