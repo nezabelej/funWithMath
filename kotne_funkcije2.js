@@ -38,7 +38,7 @@ function draw() {
     var i,n,dx;
     var freq = width/(8*Math.PI);
 
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.save();
     ctx.translate(0,height);
     ctx.scale(1,-1);

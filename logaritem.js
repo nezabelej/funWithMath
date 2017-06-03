@@ -149,6 +149,10 @@ window.onload = function(){
 		ctx.fillStyle = "aliceblue";
 		ctx.beginPath();
 		ctx.fillRect(W-290, 150, 200, 40);
+		if (base == 2) {
+			ctx.strokeStyle = "grey";
+			ctx.strokeRect(W-290, 150, 200, 40);
+		}
 		ctx.stroke();
 		ctx.fillStyle = "black";
 		ctx.fillText("log 32 = 5", W-280, 180);
@@ -158,6 +162,10 @@ window.onload = function(){
 		ctx.fillStyle = "aliceblue";
 		ctx.beginPath();
 		ctx.fillRect(W-290, 200, 200, 40);
+		if (base == 3) {
+			ctx.strokeStyle = "grey";
+			ctx.strokeRect(W-290, 200, 200, 40);
+		}
 		ctx.stroke();
 		ctx.font = "25px Courier New";
 		ctx.fillStyle = "black";
